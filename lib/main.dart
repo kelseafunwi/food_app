@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/routes/app_routes.dart';
+import 'package:food_app/views/screens/error_screen.dart';
+import 'package:food_app/views/screens/splash_screen.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,13 +16,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
+      getPages: AppRoutes.routes,
+      home: const SplashScreen(),
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+          // Set the default font for the entire app
+          fontFamily: 'Poppins',
+          primarySwatch: Colors.orange, // Example color scheme
+          textTheme: GoogleFonts.poppinsTextTheme()),
+      onUnknownRoute: (settings) => GetPageRoute(
+        page: () => const ErrorScreen(),
       ),
-      routes: ,
     );
   }
 }
