@@ -1,3 +1,3 @@
 class AppConstants {
-  static const appNane = "Food App";
+  static const appName = "Food App";
 }

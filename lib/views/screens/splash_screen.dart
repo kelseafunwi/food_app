@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app/routes/app_routes.dart';
 import 'package:get/get.dart';
@@ -18,11 +19,21 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
     controller =
         AnimationController(duration: const Duration(seconds: 2), vsync: this);
-    animation = Tween<double>(begin: 0.0, end: 1.0).animate(controller);
+    animation = Tween<double>(begin: 0.0, end: 1.0).animate(controller)
+      ..addStatusListener(animationListener);
     controller.forward(); // start the animation
-    Future.delayed(const Duration(seconds: 2), () {
-      Get.toNamed(AppRoutes.home);
-    });
+  }
+
+  void animationListener(AnimationStatus status) {
+    if (status.isCompleted) {
+      // actions to do when the status has been completed
+      if (kDebugMode) {
+        print("The animation has been completed");
+      }
+      Future.delayed(const Duration(seconds: 1), () {
+        Get.offNamed(AppRoutes.onboarding);
+      });
+    }
   }
 
   @override
@@ -44,7 +55,10 @@ class _SplashScreenState extends State<SplashScreen>
             },
             child: const Text(
               "Your number 1 food App",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
             ),
           )
         ],
