@@ -17,7 +17,7 @@ class Switcher extends StatelessWidget {
             width: 20,
             margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 3),
             decoration: BoxDecoration(
-                color: index == i ? Colors.white : AppColors.brownColor),
+                color: index == i ? Colors.white : AppColors.neutral50),
           )
       ],
     );

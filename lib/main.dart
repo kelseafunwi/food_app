@@ -26,7 +26,8 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Inter',
           primarySwatch: Colors.orange, // Example color scheme
           textTheme: GoogleFonts.poppinsTextTheme().apply(
-              bodyColor: AppColors.darkText, displayColor: AppColors.darkText)),
+              bodyColor: AppColors.neutral100,
+              displayColor: AppColors.neutral100)),
       onUnknownRoute: (settings) => GetPageRoute(
         page: () => const ErrorScreen(),
       ),

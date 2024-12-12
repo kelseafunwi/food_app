@@ -6,6 +6,7 @@ import 'package:food_app/views/widgets/inputs/auth_input.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:food_app/constants/app_colors.dart';
 import 'package:get/get.dart';
+import 'package:food_app/views/styles/styles.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -57,19 +58,29 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Text(
                     "Please sign in to your account ",
                     style: TextStyle(
-                      color: AppColors.secondaryColor,
-                    ),
+                        // color: AppColors.secondaryColor,
+                        ),
                   ),
                 ),
                 const SizedBox(height: 12),
-                const Text("Email Address"),
+                Text(
+                  "Email Address",
+                  style: formLabelStyles,
+                ),
                 const SizedBox(height: 10),
                 AuthInput(
-                    controller: _emailController, validator: emailValidators),
+                    hintText: "Enter Email",
+                    controller: _emailController,
+                    validator: emailValidators),
                 const SizedBox(height: 12),
-                const Text("Password"),
+                Text(
+                  "Password",
+                  style: formLabelStyles,
+                ),
                 const SizedBox(height: 10),
                 AuthInput(
+                    password: true,
+                    hintText: "Password",
                     controller: _passwordController,
                     validator: passwordValidator),
                 const SizedBox(height: 5),
@@ -84,7 +95,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                       child: const Text(
                         "Forgot password?",
-                        style: TextStyle(color: AppColors.primaryColor),
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: AppColors.primaryOrange,
+                            fontWeight: FontWeight.w500),
                       )),
                 ),
                 const SizedBox(

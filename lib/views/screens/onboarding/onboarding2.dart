@@ -44,7 +44,7 @@ class Onboarding2 extends StatelessWidget {
                     top: 30, bottom: 20, left: 30, right: 30),
                 height: 370,
                 decoration: const BoxDecoration(
-                    color: AppColors.primaryColor,
+                    color: AppColors.primaryOrange,
                     borderRadius: BorderRadius.all(Radius.circular(40))),
                 child: Center(
                   child: Column(
