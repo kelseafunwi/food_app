@@ -8,6 +8,7 @@ class AuthInput extends StatefulWidget {
   final String? hintText;
   final bool password;
   final String? labelText;
+  final void Function(String)? onChange;
 
   const AuthInput(
       {super.key,
@@ -15,7 +16,8 @@ class AuthInput extends StatefulWidget {
       required this.validator,
       this.password = false,
       this.labelText,
-      this.hintText});
+      this.hintText,
+      this.onChange});
 
   @override
   State<AuthInput> createState() => _AuthInputState();
@@ -28,6 +30,7 @@ class _AuthInputState extends State<AuthInput> {
   Widget build(BuildContext context) {
     return TextFormField(
         autocorrect: true,
+        onChanged: widget.onChange,
         controller: widget.controller,
         validator: widget.validator,
         textInputAction: TextInputAction.go,

@@ -8,18 +8,16 @@ String? emailValidator(String? value) {
   return null;
 }
 
-String passwordValidator(value) {
+String? passwordValidator(value) {
   if (value.isEmpty) {
     return "Password cannot be empty";
-  } else {
-    return value;
   }
+  return null;
 }
 
-String usernameValidator(value) {
+String? usernameValidator(value) {
   if (value.isEmpty) {
     return "Username cannot be empty";
-  } else {
-    return value;
   }
+  return null;
 }

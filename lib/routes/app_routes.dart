@@ -4,6 +4,7 @@ import 'package:food_app/bindings/login_binding.dart';
 import 'package:food_app/views/screens/auth/email_verification.dart';
 import 'package:food_app/views/screens/auth/forgot_password.dart';
 import 'package:food_app/views/screens/auth/login_screen.dart';
+import 'package:food_app/views/screens/auth/reset_password.dart';
 import 'package:food_app/views/screens/auth/signup_screen.dart';
 import 'package:food_app/views/screens/dashboard_screen.dart';
 import 'package:food_app/views/screens/error_screen.dart';
@@ -22,6 +23,7 @@ class AppRoutes {
   static const String signup = '/signup';
   static const String forgotPassword = '/forgot-password';
   static const String emailVerification = '/email-verification';
+  static const String resetPassword = '/reset-password';
 
   static const String dashboard = '/dashboard';
   static const String onboarding = '/onboarding';
@@ -57,6 +59,10 @@ class AppRoutes {
     GetPage(
       name: emailVerification,
       page: () => const EmailVerification(),
+    ),
+    GetPage(
+      name: resetPassword,
+      page: () => const ResetPassword(),
     ),
     GetPage(
       name: dashboard,
