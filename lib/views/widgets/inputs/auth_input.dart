@@ -31,10 +31,11 @@ class _AuthInputState extends State<AuthInput> {
         controller: widget.controller,
         validator: widget.validator,
         textInputAction: TextInputAction.go,
-        style: const TextStyle(
-            color: AppColors.neutral100,
-            fontSize: 12,
-            fontWeight: FontWeight.w500),
+        style: GoogleFonts.inter(
+            textStyle: const TextStyle(
+                color: AppColors.neutral100,
+                fontSize: 12,
+                fontWeight: FontWeight.w500)),
         cursorColor: AppColors.primaryOrange,
         obscureText: widget.password ? _isPasswordHidden : false,
         obscuringCharacter: widget.password ? '*' : '.',

@@ -47,7 +47,7 @@ class AppColors {
   static const Color neutral30 = Color.fromRGBO(237, 237, 237, 1);
   static const Color neutral40 = Color.fromRGBO(214, 214, 214, 1);
   static const Color neutral50 = Color.fromRGBO(194, 194, 194, 1);
-  static const Color neutral60 = Color.fromRGBO(135, 135, 135, 0.2);
+  static const Color neutral60 = Color.fromRGBO(135, 135, 135, 1);
   static const Color neutral70 = Color.fromRGBO(96, 96, 96, 1);
   static const Color neutral80 = Color.fromRGBO(56, 56, 56, 1);
   static const Color neutral90 = Color.fromRGBO(64, 58, 58, 1);

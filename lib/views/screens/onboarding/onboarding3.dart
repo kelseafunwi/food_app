@@ -6,7 +6,6 @@ import 'package:food_app/routes/app_routes.dart';
 import 'package:food_app/views/widgets/animation/animated_circular_border.dart';
 import 'package:food_app/views/widgets/switcher.dart';
 import 'package:get/get.dart';
-import 'package:cupertino_icons/cupertino_icons.dart';
 
 class Onboarding3 extends StatelessWidget {
   const Onboarding3({super.key});

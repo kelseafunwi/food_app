@@ -1,12 +1,14 @@
 import 'package:food_app/bindings/dashboard_binding.dart';
 import 'package:food_app/bindings/home_binding.dart';
 import 'package:food_app/bindings/login_binding.dart';
+import 'package:food_app/views/screens/auth/forgot_password.dart';
 import 'package:food_app/views/screens/auth/login_screen.dart';
 import 'package:food_app/views/screens/auth/signup_screen.dart';
 import 'package:food_app/views/screens/dashboard_screen.dart';
 import 'package:food_app/views/screens/error_screen.dart';
 import 'package:food_app/views/screens/home_screen.dart';
 import 'package:food_app/views/screens/onboarding/onboarding_screen.dart';
+import 'package:food_app/views/screens/settings_screen.dart';
 import 'package:food_app/views/screens/splash_screen.dart';
 import 'package:get/get.dart';
 
@@ -14,12 +16,15 @@ class AppRoutes {
   // Route Names
   static const String home = '/';
   static const String splash = '/splash';
+
   static const String login = '/login';
   static const String signup = '/signup';
   static const String forgotPassword = '/forgot-password';
+
   static const String dashboard = '/dashboard';
   static const String onboarding = '/onboarding';
   static const String error = '/error';
+  static const String settings = '/settings';
 
   // GetX Pages
   static final routes = [
@@ -44,6 +49,10 @@ class AppRoutes {
       page: () => const SignupScreen(),
     ),
     GetPage(
+      name: forgotPassword,
+      page: () => const ForgotPassword(),
+    ),
+    GetPage(
       name: dashboard,
       page: () => const DashboardScreen(),
       binding: DashboardBinding(),
@@ -55,6 +64,10 @@ class AppRoutes {
     GetPage(
       name: error,
       page: () => const ErrorScreen(),
+    ),
+    GetPage(
+      name: settings,
+      page: () => const SettingsScreen(),
     ),
   ];
 }

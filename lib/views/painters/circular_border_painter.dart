@@ -13,7 +13,7 @@ class CircularBorderPainter extends CustomPainter {
       ..strokeWidth = 2;
 
     final rect = Rect.fromLTWH(0, 0, size.width, size.height);
-    final startAngle = -90 * (3.14159 / 180);
+    const startAngle = -90 * (3.14159 / 180);
     final sweepAngle = 2 * 3.14159 * animation.value;
 
     canvas.drawArc(

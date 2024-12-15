@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter/foundation.dart';
 
 class AuthMiddleware extends GetMiddleware {
   @override
@@ -28,7 +29,9 @@ class AuthMiddleware extends GetMiddleware {
   // Optional: Modify page bindings dynamically
   @override
   List<Bindings>? onBindingsStart(List<Bindings>? bindings) {
-    print('AuthMiddleware: Modifying bindings');
+    if (kDebugMode) {
+      print('AuthMiddleware: Modifying bindings');
+    }
     return super.onBindingsStart(bindings);
   }
 }
