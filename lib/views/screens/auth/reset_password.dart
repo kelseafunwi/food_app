@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app/constants/app_colors.dart';
 import 'package:food_app/views/validators/auth_validators.dart';
+import 'package:food_app/views/widgets/bottom_sheets/password_changed_success_bottom_sheet.dart';
 import 'package:food_app/views/widgets/buttons/app_big_button.dart';
 import 'package:food_app/views/widgets/inputs/auth_input.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -110,27 +111,42 @@ class _ResetPasswordState extends State<ResetPassword> {
                   style: TextStyle(color: AppColors.neutral60),
                 ),
               const Spacer(),
-              AppBigButton(
-                content: "Verify Account",
-                onTap: () {
-                  if (_formKey.currentState!.validate()) {
-                    // Add your logic here
-                  }
-                  if (_newPasswordController.text !=
-                      _newPasswordConfirmationController.text) {
-                    if (kDebugMode) {
-                      print("passwords are not equal");
-                    }
-                    _showPasswordNotEqual = true;
-                    setState(() {});
-                  }
-                },
-              ),
+              AppBigButton(content: "Verify Account", onTap: resetPassword),
             ],
           ),
         ),
       )),
     );
+  }
+
+  void resetPassword() {
+    if (_formKey.currentState!.validate()) {
+      // Add your logic here
+      if (kDebugMode) {
+        print("everything is valid");
+      }
+    } else if (_newPasswordController.text !=
+        _newPasswordConfirmationController.text) {
+      if (kDebugMode) {
+        print("passwords are not equal");
+      }
+      _showPasswordNotEqual = true;
+      setState(() {});
+    } else {
+      // if there is nothing wrong during the validation then i trigger the modal.
+      showModalBottomSheet(
+        context: context,
+        backgroundColor: Colors.white,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(20),
+          ),
+        ),
+        builder: (BuildContext context) {
+          return const PasswordChangedSuccessBottomSheet();
+        },
+      );
+    }
   }
 
   @override

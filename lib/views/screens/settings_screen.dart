@@ -12,10 +12,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
   void trigger() {
     showModalBottomSheet(
       context: context,
-      backgroundColor: Colors.white, // Customize background
+      backgroundColor: Colors.white,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
-          top: Radius.circular(20), // Rounded corners at the top
+          top: Radius.circular(20),
         ),
       ),
       builder: (BuildContext context) {
@@ -36,9 +36,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                onPressed: () {
-                  trigger();
-                },
+                onPressed: trigger,
                 child: const Text('Forgot Password'),
               ),
             ],

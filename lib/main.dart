@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: AppRoutes.routes,
-      initialRoute: AppRoutes.settings,
+      initialRoute: AppRoutes.home,
       themeMode: ThemeMode.system,
       theme: ThemeData(
           // Set the default font for the entire app

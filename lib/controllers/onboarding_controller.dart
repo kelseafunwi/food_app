@@ -6,9 +6,9 @@ class OnboardingController extends GetxController {
 
   void skip() {
     pageController.animateToPage(2,
-        duration: const Duration(seconds: 1), curve: Curves.easeInOut);
+        duration: const Duration(milliseconds: 600), curve: Curves.easeInOut);
   }
 
   void next() => pageController.nextPage(
-      duration: const Duration(seconds: 1), curve: Curves.easeInOut);
+      duration: const Duration(milliseconds: 600), curve: Curves.easeInOut);
 }
