@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:food_app/constants/app_colors.dart';
 import 'package:food_app/views/screens/chat_screen.dart';
+import 'package:food_app/views/screens/food_home_screen.dart';
 import 'package:food_app/views/screens/settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = const [
-    ChatScreen(),
+    FoodHomeScreen(),
     Center(child: Text('Shop Page', style: TextStyle(fontSize: 24))),
     ChatScreen(),
     SettingsScreen(),

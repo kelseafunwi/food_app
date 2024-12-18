@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/constants/app_colors.dart';
+import 'package:food_app/views/widgets/chat_item.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -35,10 +36,26 @@ class _ChatScreenState extends State<ChatScreen> {
           children: [
             Text(
               "All Message",
-              style: GoogleFonts.inter(textStyle: const TextStyle(
-                
-              )),
-            )
+              style: GoogleFonts.inter(
+                  fontWeight: FontWeight.w600,
+                  textStyle: const TextStyle(
+                      color: AppColors.neutral100, fontSize: 16)),
+            ),
+            const SizedBox(height: 20),
+            Expanded(
+              child: ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return const ChatItem(
+                        profileUrl:
+                            'https://avatars.githubusercontent.com/u/122478667?s=400&u=671dabf7a416ce5b081f594984864a8ab1673f8b&v=4',
+                        name: 'Geopart Etdsien',
+                        lastMessage: "Your Order Just Arrived!",
+                        time: '13.47',
+                        seenStatus: 3);
+                  }),
+            ),
           ],
         ),
       )),

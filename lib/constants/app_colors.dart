@@ -31,7 +31,7 @@ class AppColors {
   static const Color errorBorderRed = Color.fromRGBO(250, 192, 192, 1);
   static const Color errorHoverRed = Color.fromRGBO(217, 58, 58, 1);
   static const Color errorPressedRed = Color.fromRGBO(128, 42, 42, 1);
-  static const Color errorFocusRed = Color.fromRGBO(241, 65, 65, 0.2);
+  static const Color errorFocusRed = Color.fromRGBO(241, 65, 65, 100);
 
   // info colors
   static const Color infoBlue = Color.fromRGBO(114, 57, 234, 1);
@@ -52,4 +52,7 @@ class AppColors {
   static const Color neutral80 = Color.fromRGBO(56, 56, 56, 1);
   static const Color neutral90 = Color.fromRGBO(64, 58, 58, 1);
   static const Color neutral100 = Color.fromRGBO(16, 16, 16, 1);
+
+  // grey background
+  static const Color greyBackground = Color.fromRGBO(243, 244, 247, 1);
 }

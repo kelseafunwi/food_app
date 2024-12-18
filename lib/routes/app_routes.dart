@@ -6,6 +6,7 @@ import 'package:food_app/views/screens/auth/forgot_password.dart';
 import 'package:food_app/views/screens/auth/login_screen.dart';
 import 'package:food_app/views/screens/auth/reset_password.dart';
 import 'package:food_app/views/screens/auth/signup_screen.dart';
+import 'package:food_app/views/screens/chat_details.dart';
 import 'package:food_app/views/screens/chat_screen.dart';
 import 'package:food_app/views/screens/dashboard_screen.dart';
 import 'package:food_app/views/screens/error_screen.dart';
@@ -30,7 +31,10 @@ class AppRoutes {
   static const String onboarding = '/onboarding';
   static const String error = '/error';
   static const String settings = '/settings';
+
+  // chat links
   static const String chat = '/chat';
+  static const String chatDetails = '/chat-details';
 
   // GetX Pages
   static final routes = [
@@ -78,6 +82,10 @@ class AppRoutes {
     GetPage(
       name: chat,
       page: () => const ChatScreen(),
+    ),
+    GetPage(
+      name: chatDetails,
+      page: () => const ChatDetails(),
     ),
     GetPage(
       name: error,

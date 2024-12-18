@@ -27,9 +27,7 @@ class MyApp extends StatelessWidget {
       initialRoute: AppRoutes.home,
       themeMode: ThemeMode.system,
       theme: ThemeData(
-          // Set the default font for the entire app
           fontFamily: 'Inter',
-          primarySwatch: Colors.orange, // Example color scheme
           textTheme: GoogleFonts.interTextTheme().apply(
               bodyColor: AppColors.neutral100,
               displayColor: AppColors.neutral100)),
