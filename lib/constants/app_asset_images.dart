@@ -11,4 +11,6 @@ class AppAssetImages {
   //
   static const String passwordChangedSuccess =
       'assets/images/illustrationSuccess.png';
+
+  static const String burgerImage = 'assets/images/burger.jpg';
 }

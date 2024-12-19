@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:food_app/constants/app_asset_images.dart';
 import 'package:food_app/constants/app_colors.dart';
-import 'package:food_app/views/widgets/category_tabs.dart';
 import 'package:food_app/views/widgets/food_items.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:heroicons/heroicons.dart';
@@ -16,12 +16,27 @@ class FoodHomeScreen extends StatefulWidget {
 
 class _FoodHomeScreenState extends State<FoodHomeScreen>
     with SingleTickerProviderStateMixin {
-  late TabController _controller;
+  late TabController _categoryTabController;
+  late int _categoryIndex = 0;
 
   @override
   void initState() {
     super.initState();
-    _controller = TabController(length: 3, vsync: this);
+    _categoryTabController = TabController(length: 4, vsync: this);
+
+    _categoryIndex = 0;
+
+    _categoryTabController.addListener(() {
+      if (_categoryTabController.indexIsChanging) {
+        if (kDebugMode) {
+          print("Switched to tab: ${_categoryTabController.index}");
+        }
+
+        setState(() {
+          _categoryIndex = _categoryTabController.index;
+        });
+      }
+    });
   }
 
   @override
@@ -122,8 +137,38 @@ class _FoodHomeScreenState extends State<FoodHomeScreen>
                     const SizedBox(height: 10),
 
                     TabBar(
+                      controller: _categoryTabController,
+                      isScrollable: true,
                       labelColor: Colors.white,
-                      tabs: categoryTabs,
+                      onTap: (index) {
+                        _categoryIndex = index;
+                        setState(() {});
+                      },
+                      tabs: [
+                        for (int i = 0; i < 4; i++)
+                          Container(
+                              padding: const EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  color: _categoryTabController.index == i
+                                      ? AppColors.primaryOrange
+                                      : Colors.white,
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(10))),
+                              child: Column(
+                                children: [
+                                  Image.asset(
+                                    AppAssetImages.burgerImage,
+                                    height: 20,
+                                    width: 20,
+                                  ),
+                                  const SizedBox(height: 5),
+                                  const Text(
+                                    "Veges",
+                                    style: TextStyle(fontSize: 12),
+                                  )
+                                ],
+                              )),
+                      ],
                       dividerColor: Colors.transparent,
                       indicator: const UnderlineTabIndicator(
                         borderSide: BorderSide(color: Colors.transparent),
@@ -131,9 +176,10 @@ class _FoodHomeScreenState extends State<FoodHomeScreen>
                     ),
 
                     // Content for each tab
-                    const Expanded(
+                    Expanded(
                       child: TabBarView(
-                        children: [
+                        controller: _categoryTabController,
+                        children: const [
                           FoodItems(
                             category: "food",
                           ),
@@ -144,7 +190,7 @@ class _FoodHomeScreenState extends State<FoodHomeScreen>
                             category: "drinks",
                           ),
                           FoodItems(
-                            category: "drinks",
+                            category: "another",
                           ),
                         ],
                       ),
@@ -168,6 +214,6 @@ class _FoodHomeScreenState extends State<FoodHomeScreen>
   @override
   void dispose() {
     super.dispose();
-    _controller.dispose();
+    _categoryTabController.dispose();
   }
 }

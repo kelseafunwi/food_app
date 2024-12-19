@@ -20,6 +20,8 @@ class FoodItems extends StatelessWidget {
           return Card(
             elevation: 0,
             child: Container(
+                width: double.infinity,
+                height: double.infinity,
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
                 decoration:
                     const BoxDecoration(color: Colors.white, boxShadow: []),
