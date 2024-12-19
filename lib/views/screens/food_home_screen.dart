@@ -27,15 +27,11 @@ class _FoodHomeScreenState extends State<FoodHomeScreen>
     _categoryIndex = 0;
 
     _categoryTabController.addListener(() {
-      if (_categoryTabController.indexIsChanging) {
-        if (kDebugMode) {
-          print("Switched to tab: ${_categoryTabController.index}");
-        }
-
-        setState(() {
-          _categoryIndex = _categoryTabController.index;
-        });
+      if (kDebugMode) {
+        print("Switched to tab: ${_categoryTabController.index}");
       }
+      _categoryIndex = _categoryTabController.index;
+      setState(() {});
     });
   }
 
@@ -149,7 +145,7 @@ class _FoodHomeScreenState extends State<FoodHomeScreen>
                           Container(
                               padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
-                                  color: _categoryTabController.index == i
+                                  color: _categoryIndex == i
                                       ? AppColors.primaryOrange
                                       : Colors.white,
                                   borderRadius: const BorderRadius.all(
